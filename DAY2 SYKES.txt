@@ -1,0 +1,109 @@
+
+config t
+vlan 25
+ name SYKEScebu.com
+ exit
+Int vlan 25
+ no shut
+ ip add 10.0.2.1 255.255.254.0
+ip dhcp excluded-add 10.0.2.1 10.0.2.100
+ip dhcp pool SYKEScebu.com
+ network 10.0.2.0 255.255.254.0
+ default-router 10.0.2.1
+ domain-name SYKEScebu.com
+ dns-server 10.41.1.10
+ option 150 ip 10.41.100.8
+ Int Fa 0/7
+  swi acc vlan 25
+  do sh ip dhcp binding
+  
+  
+config t
+vlan 25
+ name TELUSdavao.com
+ exit
+Int vlan 25
+ no shut
+ ip add 10.0.32.1 255.255.224.0
+ip dhcp excluded-add 10.0.32.1 10.0.32.100
+ip dhcp pool TELUSdavao.com
+ network 10.0.32.0 255.255.224.0
+ default-router 10.0.32.1
+ domain-name TELUSdavao.com
+ dns-server 10.41.1.10
+ option 150 ip 10.41.100.8
+ Int Fa 0/5
+  swi acc vlan 25
+  do sh ip dhcp binding
+  
+  
+vlan 25
+ name PNP.gov.ph
+ exit
+Int vlan 25
+ no shut
+ ip add 10.0.1.1 255.255.255.0
+ip dhcp excluded-add 10.0.1.1 10.0.1.100
+ip dhcp pool PNP.gov.ph
+ network 10.0.1.0 255.255.255.0
+ default-router 10.0.1.1
+ domain-name PNP.gov.ph
+ dns-server 10.41.1.10
+ option 150 ip 10.41.100.8
+ Int Fa 0/7
+  swi acc vlan 25
+  do sh ip dhcp binding
+  
+vlan 25
+ name TELUSmain.com
+ exit
+Int vlan 25
+ no shut
+ ip add 10.0.64.1 255.255.192.0
+ip dhcp excluded-add 10.0.64.1 10.0.64.100
+ip dhcp pool TELUSmain.com
+ network 10.0.64.0 255.255.192.0
+ default-router 10.0.64.1
+ domain-name TELUSmain.com
+ dns-server 10.41.1.10
+ option 150 ip 10.41.100.8
+ Int Fa 0/5
+  swi acc vlan 25
+  do sh ip dhcp binding
+ 
+
+vlan 25
+ name WALAUTAK.com
+ exit
+Int vlan 25
+ no shut
+ ip add 192.168.69.17 255.255.255.240
+ip dhcp excluded-add 192.168.69.17 192.168.69.19
+ip dhcp pool WALAUTAK.com
+ network 192.168.69.16 255.255.255.240
+ default-router 192.168.69.17
+ domain-name WALAUTAK.com
+ dns-server 10.41.1.10
+ option 150 ip 10.41.100.8
+ Int Fa 0/7
+  swi acc vlan 25
+  do sh ip dhcp binding
+  
+vlan 25
+ name SABLAYKAMI.com
+ exit
+Int vlan 25
+ no shut
+ ip add 192.168.88.33 255.255.255.224
+ip dhcp excluded-add 192.168.88.33 192.168.88.37
+ip dhcp pool SABLAYKAMI.com
+ network 192.168.88.32 255.255.255.224
+ default-router 192.168.88.33
+ domain-name SABLAYKAMI.com
+ dns-server 10.41.1.10
+ option 150 ip 10.41.100.8
+ Int Fa 0/5
+  swi acc vlan 25
+  do sh ip dhcp binding
+  
+  

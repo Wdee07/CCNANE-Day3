@@ -1,0 +1,9 @@
+VPN S2S
+@Edge
+config t
+username admin privilege 15 secret password
+ip http secure-server
+
+@SAME IOS and Version
+sh version
+

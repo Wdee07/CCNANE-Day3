@@ -1,0 +1,59 @@
+D1:
+config t
+router eigrp 100
+ no auto-summary
+ network 10.1.4.4 0.0.0.3
+ network 10.2.1.0 0.0.0.255
+ network 10.2.2.0 0.0.0.255
+ network 192.168.1.128 0.0.0.31
+end
+
+or NEXUS-like
+
+conf t
+	router eigrp CCNPLEVEL
+		address-family ipv4 unicast autonomous-system 100
+		network 10.1.4.6 0.0.0.0
+		network 10.2.1.1 0.0.0.0
+		network 10.2.2.1 0.0.0.0
+		network 192.168.1.129 0.0.0.0
+		end
+
+
+D2:
+config t
+router eigrp 100
+ no auto-summary
+ network 10.1.4.8 0.0.0.3
+ network 10.2.1.0 0.0.0.255
+ network 10.2.2.0 0.0.0.255
+ network 192.168.1.128 0.0.0.31
+end
+show ip eigrp neighbor
+
+or NEXUS-like
+
+conf t
+	router eigrp CCNPLEVEL
+		address-family ipv4 unicast autonomous-system 100
+		network 10.1.4.10 0.0.0.0
+		network 10.2.1.2 0.0.0.0
+		network 10.2.2.2 0.0.0.0
+		network 192.168.1.130 0.0.0.0
+		end
+	sh ip eigrp nei
+
+R4:
+config t
+router eigrp 100
+ no auto-summary
+ network 10.1.4.8 0.0.0.3
+ network 10.1.4.4 0.0.0.3
+ end
+ 
+@4 way test:
+sh ip protocols @tama ang na type?
+sh ip eigrp neighbor @lahat may eigrp?
+sh ip eigrp topology @lahat may routes? P=good A=unstable
+
+@saan ang best route?
